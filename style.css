@@ -1,0 +1,1180 @@
+@charset "UTF-8";
+* {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eee;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background: #ddd;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: #293b29;
+  color: #fff;
+}
+
+.btn--secondary {
+  background: #ff7600;
+  color: #fff;
+}
+
+.wrap__clock {
+  background: #3d5a45;
+  width: 350px;
+  padding: 20px;
+  border-radius: 50px;
+  margin: auto;
+}
+
+.clock {
+  width: 310px;
+  height: 310px;
+  background: #293b29;
+  border: 3px solid #212f0b;
+  border-radius: 50%;
+}
+
+.clock__line {
+  width: 1px;
+  height: 24px;
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  -webkit-transform-origin: 50% 128px;
+          transform-origin: 50% 128px;
+  background: #ff7600;
+}
+
+.clock__dot {
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  border-radius: 50%;
+  -webkit-transform-origin: 50% 116px;
+          transform-origin: 50% 116px;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+}
+
+.clock__hour-hand {
+  width: 8px;
+  height: 70px;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transform-origin: 0 96%;
+          transform-origin: 0 96%;
+}
+
+.clock__hour-hand::after {
+  content: '';
+  width: 4px;
+  height: 25px;
+  background: #000;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__minute-hand {
+  width: 8px;
+  height: 90px;
+  background: #ff7600;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 65px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transform-origin: 0 96%;
+          transform-origin: 0 96%;
+  z-index: 2;
+}
+
+.clock__minute-hand::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 98%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+}
+
+.clock__minute-hand::after {
+  content: '';
+  width: 2px;
+  height: 30px;
+  margin: auto;
+  background: #fff;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 96%;
+  -webkit-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+}
+
+.clock__second-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.clock__second-hand .greenLine, .clock__second-hand .clock__second-hand__line1, .clock__second-hand .clock__second-hand__line2, .clock__second-hand .clock__second-hand__line3, .clock__second-hand .clock__second-hand__line4, .clock__second-hand .clock__second-hand__line5 {
+  background: #b1ff00;
+  width: 1px;
+  margin: auto;
+}
+
+.clock__second-hand__line1 {
+  height: 45px;
+}
+
+.clock__second-hand__line2 {
+  height: 10px;
+  -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.clock__second-hand__line3 {
+  height: 20px;
+  -webkit-transform: scaleY(1.3) rotate(32deg) skewY(-32deg);
+          transform: scaleY(1.3) rotate(32deg) skewY(-32deg);
+  top: -2px;
+  left: -1px;
+  -webkit-transform-origin: 0 67%;
+          transform-origin: 0 67%;
+}
+
+.clock__second-hand__line3::after {
+  content: '';
+  width: 1px;
+  height: 2px;
+  left: 0;
+  background: #b1ff00;
+}
+
+.clock__second-hand__line4 {
+  -webkit-transform: skewY(25deg) rotate(-25deg);
+          transform: skewY(25deg) rotate(-25deg);
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  height: 10px;
+}
+
+.clock__second-hand__line5 {
+  height: 20px;
+}
+
+.clock__second-hand__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: auto;
+  border: 1px solid #b1ff00;
+}
+
+.clock__second-hand__dot::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #b1ff00;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.actionBar {
+  text-align: center;
+  padding: 1rem;
+}
+
+.clock__line--point-1 {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.clock__line--point-1::before {
+  content: "1";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-30deg);
+          transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.clock__line--point-1::after {
+  content: "13";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-30deg);
+          transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.clock__line--point-2 {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+
+.clock__line--point-2::before {
+  content: "2";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-60deg);
+          transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+.clock__line--point-2::after {
+  content: "14";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-60deg);
+          transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+.clock__line--point-3 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.clock__line--point-3::before {
+  content: "3";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-90deg);
+          transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.clock__line--point-3::after {
+  content: "15";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-90deg);
+          transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.clock__line--point-4 {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+
+.clock__line--point-4::before {
+  content: "4";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-120deg);
+          transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+.clock__line--point-4::after {
+  content: "16";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-120deg);
+          transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+.clock__line--point-5 {
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.clock__line--point-5::before {
+  content: "5";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-150deg);
+          transform: translate(-50%, -50%) rotate(-150deg);
+}
+
+.clock__line--point-5::after {
+  content: "17";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-150deg);
+          transform: translate(-50%, -50%) rotate(-150deg);
+}
+
+.clock__line--point-6 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.clock__line--point-6::before {
+  content: "6";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-180deg);
+          transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+.clock__line--point-6::after {
+  content: "18";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-180deg);
+          transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+.clock__line--point-7 {
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+
+.clock__line--point-7::before {
+  content: "7";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-210deg);
+          transform: translate(-50%, -50%) rotate(-210deg);
+}
+
+.clock__line--point-7::after {
+  content: "19";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-210deg);
+          transform: translate(-50%, -50%) rotate(-210deg);
+}
+
+.clock__line--point-8 {
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.clock__line--point-8::before {
+  content: "8";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-240deg);
+          transform: translate(-50%, -50%) rotate(-240deg);
+}
+
+.clock__line--point-8::after {
+  content: "20";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-240deg);
+          transform: translate(-50%, -50%) rotate(-240deg);
+}
+
+.clock__line--point-9 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.clock__line--point-9::before {
+  content: "9";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-270deg);
+          transform: translate(-50%, -50%) rotate(-270deg);
+}
+
+.clock__line--point-9::after {
+  content: "21";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-270deg);
+          transform: translate(-50%, -50%) rotate(-270deg);
+}
+
+.clock__line--point-10 {
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+.clock__line--point-10::before {
+  content: "10";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-300deg);
+          transform: translate(-50%, -50%) rotate(-300deg);
+}
+
+.clock__line--point-10::after {
+  content: "22";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-300deg);
+          transform: translate(-50%, -50%) rotate(-300deg);
+}
+
+.clock__line--point-11 {
+  -webkit-transform: rotate(330deg);
+          transform: rotate(330deg);
+}
+
+.clock__line--point-11::before {
+  content: "11";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-330deg);
+          transform: translate(-50%, -50%) rotate(-330deg);
+}
+
+.clock__line--point-11::after {
+  content: "23";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-330deg);
+          transform: translate(-50%, -50%) rotate(-330deg);
+}
+
+.clock__line--point-12 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.clock__line--point-12::before {
+  content: "12";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: 140%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+          transform: translate(-50%, -50%) rotate(-360deg);
+}
+
+.clock__line--point-12::after {
+  content: "24";
+  font-size: 12px;
+  position: absolute;
+  left: 0;
+  top: -40%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+          transform: translate(-50%, -50%) rotate(-360deg);
+}
+
+.clock__dot--point-1 {
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.clock__dot--point-2 {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+.clock__dot--point-3 {
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+
+.clock__dot--point-3::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-4 {
+  -webkit-transform: rotate(20deg);
+          transform: rotate(20deg);
+}
+
+.clock__dot--point-5 {
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+}
+
+.clock__dot--point-6 {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.clock__dot--point-6::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-7 {
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.clock__dot--point-8 {
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+
+.clock__dot--point-9 {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.clock__dot--point-9::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-10 {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+.clock__dot--point-11 {
+  -webkit-transform: rotate(55deg);
+          transform: rotate(55deg);
+}
+
+.clock__dot--point-12 {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+
+.clock__dot--point-12::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-13 {
+  -webkit-transform: rotate(65deg);
+          transform: rotate(65deg);
+}
+
+.clock__dot--point-14 {
+  -webkit-transform: rotate(70deg);
+          transform: rotate(70deg);
+}
+
+.clock__dot--point-15 {
+  -webkit-transform: rotate(75deg);
+          transform: rotate(75deg);
+}
+
+.clock__dot--point-15::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-16 {
+  -webkit-transform: rotate(80deg);
+          transform: rotate(80deg);
+}
+
+.clock__dot--point-17 {
+  -webkit-transform: rotate(85deg);
+          transform: rotate(85deg);
+}
+
+.clock__dot--point-18 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.clock__dot--point-18::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-19 {
+  -webkit-transform: rotate(95deg);
+          transform: rotate(95deg);
+}
+
+.clock__dot--point-20 {
+  -webkit-transform: rotate(100deg);
+          transform: rotate(100deg);
+}
+
+.clock__dot--point-21 {
+  -webkit-transform: rotate(105deg);
+          transform: rotate(105deg);
+}
+
+.clock__dot--point-21::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-22 {
+  -webkit-transform: rotate(110deg);
+          transform: rotate(110deg);
+}
+
+.clock__dot--point-23 {
+  -webkit-transform: rotate(115deg);
+          transform: rotate(115deg);
+}
+
+.clock__dot--point-24 {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+
+.clock__dot--point-24::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-25 {
+  -webkit-transform: rotate(125deg);
+          transform: rotate(125deg);
+}
+
+.clock__dot--point-26 {
+  -webkit-transform: rotate(130deg);
+          transform: rotate(130deg);
+}
+
+.clock__dot--point-27 {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.clock__dot--point-27::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-28 {
+  -webkit-transform: rotate(140deg);
+          transform: rotate(140deg);
+}
+
+.clock__dot--point-29 {
+  -webkit-transform: rotate(145deg);
+          transform: rotate(145deg);
+}
+
+.clock__dot--point-30 {
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.clock__dot--point-30::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-31 {
+  -webkit-transform: rotate(155deg);
+          transform: rotate(155deg);
+}
+
+.clock__dot--point-32 {
+  -webkit-transform: rotate(160deg);
+          transform: rotate(160deg);
+}
+
+.clock__dot--point-33 {
+  -webkit-transform: rotate(165deg);
+          transform: rotate(165deg);
+}
+
+.clock__dot--point-33::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-34 {
+  -webkit-transform: rotate(170deg);
+          transform: rotate(170deg);
+}
+
+.clock__dot--point-35 {
+  -webkit-transform: rotate(175deg);
+          transform: rotate(175deg);
+}
+
+.clock__dot--point-36 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.clock__dot--point-36::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-37 {
+  -webkit-transform: rotate(185deg);
+          transform: rotate(185deg);
+}
+
+.clock__dot--point-38 {
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+}
+
+.clock__dot--point-39 {
+  -webkit-transform: rotate(195deg);
+          transform: rotate(195deg);
+}
+
+.clock__dot--point-39::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-40 {
+  -webkit-transform: rotate(200deg);
+          transform: rotate(200deg);
+}
+
+.clock__dot--point-41 {
+  -webkit-transform: rotate(205deg);
+          transform: rotate(205deg);
+}
+
+.clock__dot--point-42 {
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+
+.clock__dot--point-42::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-43 {
+  -webkit-transform: rotate(215deg);
+          transform: rotate(215deg);
+}
+
+.clock__dot--point-44 {
+  -webkit-transform: rotate(220deg);
+          transform: rotate(220deg);
+}
+
+.clock__dot--point-45 {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+
+.clock__dot--point-45::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-46 {
+  -webkit-transform: rotate(230deg);
+          transform: rotate(230deg);
+}
+
+.clock__dot--point-47 {
+  -webkit-transform: rotate(235deg);
+          transform: rotate(235deg);
+}
+
+.clock__dot--point-48 {
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.clock__dot--point-48::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-49 {
+  -webkit-transform: rotate(245deg);
+          transform: rotate(245deg);
+}
+
+.clock__dot--point-50 {
+  -webkit-transform: rotate(250deg);
+          transform: rotate(250deg);
+}
+
+.clock__dot--point-51 {
+  -webkit-transform: rotate(255deg);
+          transform: rotate(255deg);
+}
+
+.clock__dot--point-51::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-52 {
+  -webkit-transform: rotate(260deg);
+          transform: rotate(260deg);
+}
+
+.clock__dot--point-53 {
+  -webkit-transform: rotate(265deg);
+          transform: rotate(265deg);
+}
+
+.clock__dot--point-54 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.clock__dot--point-54::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-55 {
+  -webkit-transform: rotate(275deg);
+          transform: rotate(275deg);
+}
+
+.clock__dot--point-56 {
+  -webkit-transform: rotate(280deg);
+          transform: rotate(280deg);
+}
+
+.clock__dot--point-57 {
+  -webkit-transform: rotate(285deg);
+          transform: rotate(285deg);
+}
+
+.clock__dot--point-57::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-58 {
+  -webkit-transform: rotate(290deg);
+          transform: rotate(290deg);
+}
+
+.clock__dot--point-59 {
+  -webkit-transform: rotate(295deg);
+          transform: rotate(295deg);
+}
+
+.clock__dot--point-60 {
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+.clock__dot--point-60::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-61 {
+  -webkit-transform: rotate(305deg);
+          transform: rotate(305deg);
+}
+
+.clock__dot--point-62 {
+  -webkit-transform: rotate(310deg);
+          transform: rotate(310deg);
+}
+
+.clock__dot--point-63 {
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
+
+.clock__dot--point-63::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-64 {
+  -webkit-transform: rotate(320deg);
+          transform: rotate(320deg);
+}
+
+.clock__dot--point-65 {
+  -webkit-transform: rotate(325deg);
+          transform: rotate(325deg);
+}
+
+.clock__dot--point-66 {
+  -webkit-transform: rotate(330deg);
+          transform: rotate(330deg);
+}
+
+.clock__dot--point-66::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-67 {
+  -webkit-transform: rotate(335deg);
+          transform: rotate(335deg);
+}
+
+.clock__dot--point-68 {
+  -webkit-transform: rotate(340deg);
+          transform: rotate(340deg);
+}
+
+.clock__dot--point-69 {
+  -webkit-transform: rotate(345deg);
+          transform: rotate(345deg);
+}
+
+.clock__dot--point-69::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.clock__dot--point-70 {
+  -webkit-transform: rotate(350deg);
+          transform: rotate(350deg);
+}
+
+.clock__dot--point-71 {
+  -webkit-transform: rotate(355deg);
+          transform: rotate(355deg);
+}
+
+.clock__dot--point-72 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.clock__dot--point-72::after {
+  content: '✦';
+  font-size: 10px;
+  color: #ff7600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=style.css.map */
